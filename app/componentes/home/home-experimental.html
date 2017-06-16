@@ -1,0 +1,110 @@
+<div id="header">
+    <div id="mask">
+        
+        <div id="hero-img">
+            <div id="mUSIC">MUSIC</div>
+            <div id="sEARCH">SEARCH</div>
+           
+                <img id="headphones" src="/music-search/assets/Images/headphones.png"/>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+<!-- section-colored -->
+<div class="section-colored text-center">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Music Search</h2>
+        				<p>Music Search using Spotfy API</p>
+        				<hr>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.section-colored -->
+
+<!-- section -->
+<div class="section">
+
+    <!-- container -->
+    <div class="container">
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-arrow-down"></i> Search </h3>
+                <br>
+          				<ul>
+          				    <!--<li><button ng-click="login()">Login</button></li>-->
+          					<li> <input type="text" ng-model="search.term" placeholder="Type a artist our album" /> <button ng-click="s()">Find</button> </li>
+
+          				</ul>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <div class="cont">
+      <div class="wrapper" ng-repeat="item in items" ng-switch on="$index % 4">
+        
+         <div class="c" ng-switch-when="0">
+            <img ng-show="items[$index].images.length > 0" src="{{items[$index].images[0].url}}" width="300px" height="300px"/>
+            <img ng-show="items[$index].images.length === 0" src="/music-search/assets/Images/Bitmap@2x.png" width="300px" height="300px"/>
+            <br>
+            {{items[$index].name}}
+          </div>
+          <div class="c" ng-switch-when="0">
+            <span ng-show="items[$index+1]">
+                <img ng-show="items[$index+1].images.length > 0" src="{{items[$index+1].images[0].url}}" width="300px" heigth="300px"/>
+                <img ng-show="items[$index+1].images.length === 0" src="/music-search/assets/Images/Bitmap@2x.png" width="300px" heigth="300px"/>
+              <br>
+              {{items[$index+1].name}}
+            </span>
+          </div>
+          <div class="c" ng-switch-when="0">
+            <span ng-show="items[$index+2]"> 
+             <img ng-show="items[$index+2].images.length > 0" src="{{items[$index+2].images[0].url}}" width="300px" heigth="300px"/>
+             <img ng-show="items[$index+2].images.length === 0" src="/music-search/assets/Images/Bitmap@2x.png" width="300px" heigth="300px"/>
+              <br>
+              {{items[$index+2].name}}
+            </span>
+          </div>
+      </div>
+      <div ng-hide="prox === null"><button ng-click="loadMore()">Load More</button></div>
+    </div>
+
+</div>
+<!-- /.section -->
+
+
+
+<!-- container -->
+<div class="container">
+
+    <!-- row -->
+    <div class="row well">
+        <div class="col-lg-8 col-md-8">
+            <h4></h4>
+            <p></p>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <a class="btn btn-lg btn-primary pull-right" href="http://blog.sw9.com.br">Click Here</a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->

@@ -1,0 +1,165 @@
+<!-- Inicio - Template Modal -->
+<script type="text/ng-template" id="modal.html">
+  <div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-music fa-2x"></i>&nbsp;Albums</h4>
+      </div>
+      <div class="modal-body">
+
+            <div ng-repeat="album in albums">
+                <div ng-class="{ 'row': ($index + 1) % 1 == 0 }">
+                        <div class = "col-md-12">
+                          <div class="thumbnail img-responsive">
+                                <img ng-show="albums[$index].images.length > 0" src="{{albums[$index].images[0].url}}" />
+                                <img ng-show="albums[$index].images.length === 0" src="/assets/Images/Cross@2x.png" />
+                                <div class="caption">
+                                    <h5>{{albums[$index].name}}</h5>
+                                </div>
+
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="albumIndicator.code === null" class="text-center">
+                <i class="fa fa-refresh fa-spin fa-3x"></i>&nbsp;&nbsp;Loading...
+            </div>
+
+            <div ng-show="albumIndicator.code === 0">
+                <p>{{albumIndicator.message}}</p>
+            </div>
+
+            <div ng-show="albumIndicator.code === -1">
+                <p>{{albumIndicator.message}}</p>
+            </div>
+
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<!-- Fim - Template Modal -->
+
+<!-- Inicio - Template Loading Indicator -->
+<script type="text/ng-template" id="loading.html">
+  <div class="loading_template">
+  <i class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;{{$message}}
+</div>
+</script>
+<!-- Fim - Template Loading Indicator -->
+
+<!-- section-colored -->
+<div class="section-colored text-center">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Music Search</h2>
+        				<p>Music Search using Spotify API</p>
+        				<hr>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.section-colored -->
+
+<!-- section -->
+<div class="section">
+
+    <!-- container -->
+    <div class="container">
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-arrow-down"></i> Search </h3>
+                <br>
+
+  				 <div class="input-group">
+  				    <input class="form-control" type="text" ng-model="search.term" placeholder="Type an artist or album" />
+  				    <span class="input-group-btn">
+  				        <button ng-click="s()" class="btn btn-info">Find</button>
+  				    </span>
+  				 </div>
+
+  				 <br>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+        <div ng-repeat="item in items">
+            <div ng-class="{ 'row': ($index + 1) % 4 == 0 }">
+                <div class="col-md-3">
+
+                    <div ng-show="items[$index].type === 'artist'">
+
+                        <a href="javascript:void(0)" ng-click="showModal(items[$index].id)">
+                          <div class="thumbnail">
+                            <img ng-show="items[$index].images.length > 0" src="{{items[$index].images[0].url}}" />
+                            <img ng-show="items[$index].images.length === 0" src="/assets/Images/Cross@2x.png" />
+                            <div class="caption">
+                                <i class="fa fa-user fa-2x"></i><h5>{{items[$index].name}}</h5>
+                            </div>
+                           </div>
+                        </a>
+
+                    </div>
+
+                    <div ng-show="items[$index].type === 'album'">
+
+                          <div class="thumbnail">
+                            <img class="thumbnail img-responsive" ng-show="items[$index].images.length > 0" src="{{items[$index].images[0].url}}" />
+                            <img class="thumbnail img-responsive" ng-show="items[$index].images.length === 0" src="/assets/Images/Cross@2x.png" />
+                            <div class="caption">
+                                <i class="fa fa-music fa-2x"></i><h5>{{items[$index].name}}</h5>
+                            </div>
+
+                          </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="indicator.code === null" class="text-center">
+            <i class="fa fa-refresh fa-spin fa-3x"></i>&nbsp;&nbsp;Loading...
+        </div>
+
+        <div ng-show="indicator.code === 0">
+            <p>{{indicator.message}}</p>
+        </div>
+
+        <div ng-show="indicator.code === -1">
+            <p>{{indicator.message}}</p>
+        </div>
+
+        <div ng-hide="proxArtist === null && proxAlbum === null">
+
+  			    <button
+  			        cg-busy="{promise:loadMorePromise, message:'Loading...', backdrop:false, minDuration:5000, templateUrl:'loading.html'}"
+  			        ng-click="loadMore()" class="btn btn-danger btn-lg btn-block">Load More</button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- /.section -->

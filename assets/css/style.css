@@ -1,0 +1,156 @@
+.grid {
+  width: 1100px;
+  height: 250px;
+}
+
+
+.modalGrid {
+  width: 100px;
+  height: 200px;
+}
+.modal-dialog {
+  width: 250px;
+}
+
+.modal-crud {
+  width: 350px;
+}
+
+.header-filtered {
+  color: red;
+}
+
+.text-input--underbar {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  line-height: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  vertical-align: top;
+  outline: none;
+  line-height: 1;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #1f1f21;
+  padding: 4px 8px 0px 8px;
+  margin: 0;
+  font-size: 15px;
+  height: 31px;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #ddd;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.loading_template {
+  background-color: black;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+
+/**/
+
+/* Mobile first */
+.c {
+  float: left;
+  width: 100%;
+}
+
+/* Responsive column widths */
+@media (min-width: 700px) {
+  /* 1 */
+  .c:first-child:last-child {
+    width: 100%;
+  }
+
+  /* 2 */
+  .c:nth-last-child(2):first-child,
+  .c:nth-last-child(2):first-child + .c {
+    width: 50%;
+  }
+
+  /* 3 */
+  .c {
+    width: 33.33333%;
+  }
+
+  /* 1 extra */
+  .c:nth-child(3n + 1):last-child {
+    width: 100%;
+  }
+
+  /* 2 extra */
+  .c:nth-child(3n + 1):nth-last-child(2),
+  .c:nth-child(3n + 1):nth-last-child(2) + .c {
+    width: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* general styling */
+
+
+/* general scaffolding */
+.cont {
+  
+  padding: 5% 10%;
+  
+}
+.wrapper {
+  margin-bottom: 60px;
+}
+.wrapper:before,
+.wrapper:after{
+  content: ' ';
+  display: table;
+  clear: both;
+}
+
+/* coloring/sizing */
+.c {
+  background-color: #75d6f9;
+  color: white;
+  padding: 50px;
+  box-sizing: border-box;
+  moz-box-sizing: border-box;
+  text-align: center;
+}
+.c:nth-child(3n - 2) {
+  background-color: #26bbf0;
+}
+.c:nth-child(3n) {
+  background-color: #11a3d7;
+}

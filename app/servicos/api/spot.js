@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  angular.module('api.spot', [])
   .factory('spot', function($http, $q, Spotify) {
 
     var spot = {};
